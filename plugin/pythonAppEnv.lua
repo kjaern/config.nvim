@@ -52,23 +52,4 @@ local createAppEnv = function(opts)
         :find()
 end
 
-local function hello2()
-    local pos = vim.api.nvim_win_get_cursor(0)[2]
-    local line = vim.api.nvim_get_current_line()
-    local nline =
-    "# sdfasdfasdfasdfasdf asf asdf asd asdfasdf asdfa sd /nline #asdfasdfasdfasf sdfasdfas asdfasdf sdf<Enter>"
-    -- call nvim_buf_set_lines(0, 0, 0, v:true, ["test text"])
-    --	vim.api.nvim_set_lines(0,0,v:true,["asdf"])
-    --# This software is(c) Xnovo Technology ApS 2024. All use is subject to
-    --# separate license agreement.
-    --# Created by K. Nielsen on Tue Apr 30 2024
-    vim.api.nvim_set_current_line(nline)
-    print(pos)
-    vim.cmd('norm! j')
-    -- vim.api.nvim_win_set_cursor({ 0 }, { 1, 1 })
-    vim.api.nvim_set_current_line(nline)
-
-    vim.api.nvim_win_set_cursor(0, pos)
-    --	vim.api.nvim_line(nline, line)
-end
 vim.keymap.set('n', '<leader>ka', createAppEnv)
