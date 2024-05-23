@@ -23,6 +23,21 @@ vim.keymap.set({ 'n', 'v' }, '<leader>d', [["_d]])
 -- This is going to get me cancelled
 --vim.keymap.set({ 'i', 'v' }, 'jj', '<Esc>'),
 
+vim.keymap.set('n', '<leader>tt', function()
+    print(vim.loop.cwd())
+    print("wt -w 0 -d " .. vim.loop.cwd())
+    vim.api.nvim_command(":!wt -w 0 nt -d " .. vim.loop.cwd())
+    -- vim.api.nvim_command("\<CR>")
+    -- vim.fn.system("wt", "-w 0 -sp -d " .. vim.loop.cwd())
+end)
+vim.keymap.set('n', '<leader>tr', function()
+    print(vim.loop.cwd())
+    print("wt -w 0 -sp -d " .. vim.loop.cwd())
+    vim.api.nvim_command(":!wt -w 0 sp -d " .. vim.loop.cwd())
+    -- vim.api.nvim_command("\<CR>")
+    -- vim.fn.system("wt", "-w 0 -sp -d " .. vim.loop.cwd())
+end)
+
 vim.keymap.set('n', 'Q', '<nop>')
 vim.keymap.set('n', '<leader>f', vim.lsp.buf.format)
 
