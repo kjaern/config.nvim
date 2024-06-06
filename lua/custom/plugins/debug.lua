@@ -19,7 +19,7 @@ return {
         'jay-babu/mason-nvim-dap.nvim',
 
         -- Add your own debuggers here
-        -- 'leoluz/nvim-dap-go',
+        'leoluz/nvim-dap-go',
         'mfussenegger/nvim-dap-python',
         'ziglang/zig.vim',
     },
@@ -86,7 +86,7 @@ return {
         dap.listeners.before.event_exited['dapui_config'] = dapui.close
 
         -- Install golang specific config
-        -- require('dap-go').setup()
+        require('dap-go').setup()
         -- require('dap-zig').setup()
         require('dap-python').setup '~/pythonNvim/Scripts/python.exe'
 
