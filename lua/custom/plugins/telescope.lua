@@ -80,8 +80,8 @@ return { -- Fuzzy Finder (files, lsp, etc)
                     on_project_selected = function(prompt_bufnr)
                         -- Do anything you want in here. For example:
                         require("telescope._extensions.project.actions").change_working_directory(prompt_bufnr, false)
-                        print("asffasd")
-                        -- require("harpoon.ui").nav_file(1)
+                        local harpoon = require("harpoon")
+                        harpoon:list():select(1)
                     end
                 }
             },
