@@ -9,13 +9,16 @@ return {
             view_options = {
                 -- Show files and directories that start with "."
                 show_hidden = true,
+                delete_to_trash = true,
+                skip_confirm_for_simple_edits = true,
+
                 -- This function defines what is considered a "hidden" file
-                is_hidden_file = function(name, bufnr)
-                    return vim.startswith(name, ".")
-                end,
+                -- is_hidden_file = function(name, bufnr)
+                --     return vim.startswith(name, ".")
+                -- end,
                 -- This function defines what will never be shown, even when `show_hidden` is set
                 is_always_hidden = function(name, bufnr)
-                    return false
+                    return name == '..' or name == '.git'
                 end,
                 -- Sort file names in a more intuitive order for humans. Is less performant,
                 -- so you may want to set to false if you work with large directories.
