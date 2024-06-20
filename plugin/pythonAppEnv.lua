@@ -10,8 +10,8 @@ local function createEnv(envName)
     vim.fn.feedkeys 'a'
     local enter = vim.api.nvim_replace_termcodes('<CR>', true, true, true)
     vim.fn.feedkeys('clear' .. enter)
-    vim.fn.feedkeys('~/pythonNvim/Scripts/python.exe' .. enter)
-    vim.fn.feedkeys('createDevEnv conda ' .. envName .. enter)
+    -- vim.fn.feedkeys('~/pythonNvim/Scripts/python.exe' .. enter)
+    vim.fn.feedkeys('createDevEnv python ' .. envName .. enter)
     vim.fn.feedkeys('conda deactivate' .. envName .. enter)
 end
 
