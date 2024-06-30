@@ -1,7 +1,9 @@
 local ls = require "luasnip"
 
-local s, sn = ls.snippet, ls.snippet_node
-local i, d = ls.insert_node, ls.dynamic_node
+-- local s, sn = ls.snippet, ls.snippet_node
+-- local i, d = ls.insert_node, ls.dynamic_node
+
+local fmt = require("luasnip.extras.fmt").fmt
 
 local function uuid4()
     local id, _ = vim.fn.system('python -c "import uuid; print(uuid.uuid4())"'):gsub('\n', '')
@@ -31,12 +33,9 @@ local function getDate()
 end
 
 ls.add_snippets("all", {
-    s({
+    ls.snippet({
         trig = 'date',
         name = 'Date',
-        dscr = 'Generate current date string'
-    }, {
-        -- ls.dynamic_node(1, function() return ls.snippet_node(nil, ls.insert_node(1, getDate())) end),
-        ls.function_node(getDate)
-    }),
+        dscr = 'Generate current date string',
+    }, fmt("{}", { vim.fn.strftime("%a %d %b %Y") })),
 })
