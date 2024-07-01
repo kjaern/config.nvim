@@ -29,11 +29,25 @@ For all packages to work, please ensure that the following is installed:
 
 
 ## Raspberry pi
-* build neovim from source
+* build neovim from source, description can be found here:
+https://github.com/neovim/neovim/blob/master/BUILD.md
+sudo apt-get install ninja-build gettext cmake unzip curl build-essential
+sudo apt-get install git
+cd neovim
+git checkout stable
+make CMAKE_BUILD_TYPE=RelWithDebInfo
+sudo make install
+add 
+export PATH="$HOME/neovim/build/bin/nvim:$PATH"
+to
+build/bin/nvim ~/.bashrc
+
+
 
 * make sure en_US and/or en_US.UTF-8 is insalled, so outcomment them in 
 /etc/locale.gen
 sudo update-locale en_US.UTF-8 UTF-8
 
-* get node.js for lsp servers, sudo apt install nodejs npm
+* get node.js for lsp servers, 
+sudo apt install nodejs npm
 
