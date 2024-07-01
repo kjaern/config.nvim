@@ -14,9 +14,26 @@ For all packages to work, please ensure that the following is installed:
 * node -
     * on windows choco install nodejs-lts --version="20.14.0"
 
+* choco install fd (used by python-venv)
+* choco install stylua
+
+
 ## Linux
+* sudo snap install neovim --classic
+
+* sudo apt install nodejs
+
+* sudo apt-install fd-find
+
+* git clone https://github.com/kjaern/config.nvim.git ~/.config/nvim
+
 
 ## Raspberry pi
+* build neovim from source
 
-sudo apt install nodejs npm
+* make sure en_US and/or en_US.UTF-8 is insalled, so outcomment them in 
+/etc/locale.gen
+sudo update-locale en_US.UTF-8 UTF-8
+
+* get node.js for lsp servers, sudo apt install nodejs npm
 
