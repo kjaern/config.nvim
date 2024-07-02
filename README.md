@@ -52,4 +52,4 @@ sudo update-locale en_US.UTF-8 UTF-8
 sudo apt install nodejs npm
 
 sudo apt-get intsll fd-find
-
+sudo apt-get install ripgrep
