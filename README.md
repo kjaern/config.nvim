@@ -51,3 +51,5 @@ sudo update-locale en_US.UTF-8 UTF-8
 * get node.js for lsp servers, 
 sudo apt install nodejs npm
 
+sudo apt-get intsll fd-find
+
