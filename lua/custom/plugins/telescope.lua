@@ -52,12 +52,17 @@ return { -- Fuzzy Finder (files, lsp, etc)
             --/undotre
             --
             project_actions = require("telescope._extensions.project.actions"),
-            -- defaults = {
-            --
-            --   mappings = {
-            --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
-            --   },
-            -- },
+            defaults = {
+
+              mappings = {
+                i = { ['<c-enter>'] = 'to_fuzzy_refine' },
+              },
+ 
+            file_ignore_patterns = {
+                "node_modules",
+                ".venv",
+            },
+            },
             -- pickers = {}
             extensions = {
                 ['ui-select'] = {
