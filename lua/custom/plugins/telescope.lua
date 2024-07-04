@@ -54,14 +54,13 @@ return { -- Fuzzy Finder (files, lsp, etc)
             project_actions = require("telescope._extensions.project.actions"),
             defaults = {
 
-              mappings = {
-                i = { ['<c-enter>'] = 'to_fuzzy_refine' },
-              },
- 
-            file_ignore_patterns = {
-                "node_modules",
-                ".venv",
-            },
+                mappings = {
+                    i = { ['<c-enter>'] = 'to_fuzzy_refine' },
+                },
+                file_ignore_patterns = {
+                    "node_modules",
+                    ".venv",
+                },
             },
             -- pickers = {}
             extensions = {
