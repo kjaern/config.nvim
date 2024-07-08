@@ -31,7 +31,8 @@ return {
     end,
     keys = {
         -- { ",v", "<cmd>VenvSelect<cr>" },
-        { '<leader>vs', '<cmd>VenvSelect<cr>' },
+        -- { '<leader>vs', '<cmd>VenvSelect<cr>',      { show_telescope_search_type = true, file_ignore_patterns = { ".venv" } },
+        { '<leader>vs', '<cmd>VenvSelect<cr>',      { show_telescope_search_type = true } },
         -- Keymap to retrieve the venv from a cache (the one previously used for the same project directory).
         { '<leader>vc', '<cmd>VenvSelectCached<cr>' },
         { '<leader>vv', function()
