@@ -61,6 +61,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
                     "node_modules",
                     -- ".venv",
                 },
+                hidden_files = true, -- default: false
             },
             -- pickers = {}
             extensions = {
