@@ -84,6 +84,8 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 
 vim.keymap.set('n', '<A-l>', '<C-w>>', { desc = 'Increase buffer size' })
 vim.keymap.set('n', '<A-h>', '<C-w><', { desc = 'Decrease buffer size' })
+vim.keymap.set('n', '<A-j>', '<C-w>+', { desc = 'Increase buffer size' })
+vim.keymap.set('n', '<A-k>', '<C-w>-', { desc = 'Decrease buffer size' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
