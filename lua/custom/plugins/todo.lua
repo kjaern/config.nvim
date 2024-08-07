@@ -1,4 +1,8 @@
 return {
+    -- :TodoTelescope keywords=TODO,FIX
+    -- :TodoQuickFix
+    -- :Trouble todo
+    -- :TodoTelescope
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = {
