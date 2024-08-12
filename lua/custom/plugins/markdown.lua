@@ -1,4 +1,9 @@
 return {
+    -- " Start the preview
+    -- :MarkdownPreview
+    --
+    -- " Stop the preview"
+    -- :MarkdownPreviewStop
     "iamcco/markdown-preview.nvim",
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
     build = "cd app && yarn install",
