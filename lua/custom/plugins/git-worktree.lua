@@ -8,11 +8,11 @@ return {
         local telescope = require 'telescope'
         require('git-worktree').setup()
         -- vim.keymap.set("n", "<leader>gw", "<CMD>require('telescope').extensions.git_worktree.git_worktrees()<CR>",
-        vim.keymap.set('n', '<leader>gw', function(sdf)
+        vim.keymap.set('n', '<leader>ww', function(sdf)
             print(sdf)
             telescope.extensions.git_worktree.git_worktrees()
         end)
-        vim.keymap.set('n', '<leader>gwc', function()
+        vim.keymap.set('n', '<leader>wwc', function()
             telescope.extensions.git_worktree.create_git_worktree()
         end)
     end,
