@@ -93,7 +93,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
         }
 
 
-        vim.cmd([[ let g:python3_host_prog ='~/pythonNvim/Scripts/python.exe' ]])
+        vim.cmd([[ let g:python3_host_prog ='~/pythonNvim/python.exe' ]])
 
 
         -- Enable telescope extensions, if they are installed
