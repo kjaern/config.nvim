@@ -8,6 +8,9 @@ It assumes there is a conda env on this location:
 In a miniconda terminal run:
 conda create --prefix %userprofile%\pythonNvim -y python==3.11 pynvim 
 pip install pynvim debugpy
+or better yet, for blender support
+conda create --prefix %userprofile%\pythonNvim -y python==3.11.7 pynvim debugpy
+pip intall bpy 
 
 For all packages to work, please ensure that the following is installed:
 * c and cpp compiler - (just install zig...)
@@ -18,7 +21,7 @@ For all packages to work, please ensure that the following is installed:
 * winget install BurntSushi.ripgrep.MSVC
 * choco install fd (used by python-venv)
 * choco install stylua
-
+* choco install luarocks
 
 ## Linux
 * sudo snap install neovim --classic
