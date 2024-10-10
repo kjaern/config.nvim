@@ -18,8 +18,9 @@ For all packages to work, please ensure that the following is installed:
 * node -
     * on windows choco install nodejs-lts --version="20.14.0"
 
-* winget install BurntSushi.ripgrep.MSVC
-* choco install fd (used by python-venv)
+* choco install -y neovim git ripgrep wget fd unzip gzip mingw make 
+        (instruction from kickstart, might be some redundancies)
+
 * choco install stylua
 * choco install luarocks
 
