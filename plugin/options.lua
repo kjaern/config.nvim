@@ -1,5 +1,6 @@
 local opt = vim.opt
 
+opt.winbar = "%=%m %f"
 opt.number = true
 opt.relativenumber = true
 
@@ -8,6 +9,7 @@ opt.mouse = 'a'
 
 opt.showmode = false
 
+-- opt.rocks.enabled = false
 
 -- Sync clipboard between OS and Neovim.
 --  Remove this option if you want your OS clipboard to remain independent.
