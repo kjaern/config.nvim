@@ -30,6 +30,10 @@ For all packages to work, please ensure that the following is installed:
 * sudo apt install nodejs
 
 * sudo apt-install fd-find
+snap install zig --classic --beta
+sudo apt install ripgrep
+sudo apt install clang
+sudo apt install unzip
 
 * git clone https://github.com/kjaern/config.nvim.git ~/.config/nvim
 
