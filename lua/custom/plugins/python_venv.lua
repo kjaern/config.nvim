@@ -2,8 +2,8 @@ return {
     -- dir = "C:\\Users\\Kenneth\\Development\\venv-selector.nvim",
     -- config = true,
 
-    -- "linux-cultist/venv-selector.nvim",
-    "kjaern/venv-selector.nvim",
+    "linux-cultist/venv-selector.nvim",
+    -- "kjaern/venv-selector.nvim",
     branch = "regexp", -- This is the regexp branch, use this for the new version
     dependencies = {
         "neovim/nvim-lspconfig",
@@ -27,7 +27,7 @@ return {
                 options = {
                     -- on_venv_activate_callback = nil,           -- callback function for after a venv activates
                     -- enable_default_searches = true,            -- switches all default searches on/off
-                    -- enable_cached_venvs = true,               -- use cached venvs that are activated automatically when a python file is registered with the LSP.
+                    enable_cached_venvs = true,               -- use cached venvs that are activated automatically when a python file is registered with the LSP.
                     cached_venv_automatic_activation = false, -- if set to false, the VenvSelectCached command becomes available to manually activate them.venv
                     -- activate_venv_in_terminal = true,          -- activate the selected python interpreter in terminal windows opened from neovim
                     -- set_environment_variables = true,          -- sets VIRTUAL_ENV or CONDA_PREFIX environment variables

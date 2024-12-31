@@ -6,11 +6,14 @@ It assumes there is a conda env on this location:
 %userprofile%\pythonNvim
 
 In a miniconda terminal run:
-conda create --prefix %userprofile%\pythonNvim -y python==3.11 pynvim 
+conda create --prefix %userprofile%\pythonNvim -y python==3.12 pynvim 
 pip install pynvim debugpy
 or better yet, for blender support
-conda create --prefix %userprofile%\pythonNvim -y python==3.11.7 pynvim debugpy
+conda create --prefix %userprofile%\pythonNvim -y python==3.12 pynvim debugpy
+conda activate .\pythonNvim
 pip intall bpy 
+
+pyreadline3
 
 For all packages to work, please ensure that the following is installed:
 * c and cpp compiler - (just install zig...)
