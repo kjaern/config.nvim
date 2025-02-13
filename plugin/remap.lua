@@ -36,6 +36,14 @@ vim.keymap.set('n', '<leader>tr', function()
     -- vim.fn.system("wt", "-w 0 -sp -d " .. vim.loop.cwd())
 end, { desc = 'Open terminal, in project folder, in new split' })
 
+-- vim.opt.shell = 'powershell.exe'
+vim.keymap.set('n', '<leader>wt', function()
+    vim.cmd.vnew()
+    vim.cmd.term()
+    vim.cmd.wincmd('J')
+    vim.api.nvim_win_set_height(0, 15)
+end)
+
 vim.keymap.set('n', 'Q', '<nop>')
 vim.keymap.set('n', '<leader>f', vim.lsp.buf.format)
 
