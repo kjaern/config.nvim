@@ -4,7 +4,6 @@ return {
 
     "linux-cultist/venv-selector.nvim",
     -- "kjaern/venv-selector.nvim",
-    branch = "regexp", -- This is the regexp branch, use this for the new version
     dependencies = {
         "neovim/nvim-lspconfig",
         "mfussenegger/nvim-dap", "mfussenegger/nvim-dap-python", --optional
