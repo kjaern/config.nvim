@@ -1,5 +1,8 @@
 return {
-    'ThePrimeagen/git-worktree.nvim',
+    'ThePrimeagen/gitnvim',
+    dir = "C:/Users/Kenneth/Development/git-worktree.nvim",
+    -- lazy = true,
+
     opts = {},
     -- Optional dependencies
     dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -12,8 +15,11 @@ return {
             print(sdf)
             telescope.extensions.git_worktree.git_worktrees()
         end)
-        vim.keymap.set('n', '<leader>wwc', function()
+        vim.keymap.set('n', '<leader>wc', function()
             telescope.extensions.git_worktree.create_git_worktree()
+        end)
+        vim.keymap.set('n', '<leader>wq', function()
+            telescope.extensions.git_worktree.switch_worktree()
         end)
     end,
 
