@@ -1,6 +1,6 @@
 return {
     'ThePrimeagen/gitnvim',
-    dir = "C:/Users/Kenneth/Development/git-worktree.nvim",
+    -- dir = "C:/Users/Kenneth/Development/git-worktree.nvim",
     -- lazy = true,
 
     opts = {},
