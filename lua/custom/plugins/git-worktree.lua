@@ -1,5 +1,5 @@
 return {
-    'ThePrimeagen/gitnvim',
+    'ThePrimeagen/git-worktree.nvim',
     -- dir = "C:/Users/Kenneth/Development/git-worktree.nvim",
     -- lazy = true,
 
