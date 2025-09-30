@@ -7,6 +7,8 @@ opt.relativenumber = true
 -- Enable mouse mode, can be useful for resizing splits for example!
 opt.mouse = 'a'
 
+vim.g.undotree_DiffCommand = "FC"
+
 opt.showmode = false
 
 -- opt.rocks.enabled = false
