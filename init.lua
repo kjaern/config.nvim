@@ -35,17 +35,22 @@ if not ok then
     outfile:close()
 end
 
+local f = vim.api.nvim_get_runtime_file("lua/optionalPlugins.lua", false)
 
-local optPlugin = require("optionalPlugins")
-for key, val in pairs(optPlugin) do
-    print(key, val)
+-- local optPlugin = {}
+if f[1] == nil then
+	print("Missing optional plugins file.")
+	optPlugin = { { import = "custom/plugins" } }
+else
+	optPlugin = require("optionalPlugins")
+	table.insert(optPlugin, { import = "custom/plugins" })
 end
 
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-    spec = optPlugin,
-    change_detection = {
-        notify = false,
-    },
+	spec = optPlugin,
+	change_detection = {
+		notify = false,
+	},
 })
