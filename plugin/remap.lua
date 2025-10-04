@@ -42,7 +42,6 @@ vim.keymap.set("n", "<leader>wt", function()
 	vim.cmd.term()
 	vim.cmd.wincmd("J")
 	vim.api.nvim_win_set_height(0, 15)
-    vim.cmd.
 end, { desc = "Open vim emulated terminal, in project folder, in new vertical split" })
 
 vim.keymap.set("n", "Q", "<nop>")
