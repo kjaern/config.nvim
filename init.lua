@@ -23,9 +23,28 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
         os.exit(1)
     end
 end
+local ok, err = os.rename("./lua/optionalPlugins.lua", "./lua/optionalPlugins.lua");
+if not ok then
+    print("Plugins selection missing, copying optionalPluginsDefaults to optionalPlugins")
+    infile = io.open("./lua/optionalPluginsDefaults.lua", "r")
+    instr = infile:read("*a")
+    infile:close()
+
+    outfile = io.open("./lua/optionalPlugins.lua", "w")
+    outfile:write(instr)
+    outfile:close()
+end
+
+
+local optPlugin = require("optionalPlugins")
+for key, val in pairs(optPlugin) do
+    print(key, val)
+end
+
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup({ import = "custom/plugins" }, {
+require("lazy").setup({
+    spec = optPlugin,
     change_detection = {
         notify = false,
     },
