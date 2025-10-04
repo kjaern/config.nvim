@@ -11,7 +11,7 @@ pip install pynvim debugpy
 or better yet, for blender support
 conda create --prefix %userprofile%\pythonNvim -y python==3.12 pynvim debugpy
 conda activate .\pythonNvim
-pip intall bpy 
+pip intall bpy
 
 pyreadline3
 
