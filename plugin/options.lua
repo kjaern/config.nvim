@@ -18,7 +18,6 @@ opt.showmode = false
 --  See `:help 'clipboard'`
 -- opt.clipboard = 'unnamedplus'
 
--- TODO: What is this?
 opt.breakindent = true
 
 -- Case-insensitive searching UNLESS \C or capital in search
