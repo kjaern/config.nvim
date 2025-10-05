@@ -1,2 +1,3 @@
 lua/optionalPlugins.lua
+lua/languages.lua
 lazy-lock.json

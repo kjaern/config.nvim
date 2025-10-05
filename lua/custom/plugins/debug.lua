@@ -1,18 +1,29 @@
+local depend = {
+    "rcarriga/nvim-dap-ui",
+    "nvim-neotest/nvim-nio",
+    "williamboman/mason.nvim",
+    'jay-babu/mason-nvim-dap.nvim',
+}
+
+for keyTable, langTable in pairs(OptLang) do
+    for keyLang, lang in pairs(langTable) do
+        -- print("setting up ".. keyLang)
+        -- vim.print(lang)
+        if not lang == nil then
+        end
+        if lang.dapDependency  then
+            table.insert(depend, lang.dapDependency)
+        -- else
+        --     print("Skipping dap dependency " .. keyLang)
+        end
+    end
+end
+
 return {
     -- NOTE: Yes, you can install new plugins here!
     'mfussenegger/nvim-dap',
     -- NOTE: And you can specify dependencies as well
-    dependencies = {
-        "rcarriga/nvim-dap-ui",
-        "nvim-neotest/nvim-nio",
-        "williamboman/mason.nvim",
-        'jay-babu/mason-nvim-dap.nvim',
-
-        -- Add your own debuggers here
-        'leoluz/nvim-dap-go',
-        'mfussenegger/nvim-dap-python',
-        'ziglang/zig.vim',
-    },
+    dependencies = depend,
     config = function()
         local dap = require 'dap'
         local dapui = require 'dapui'
@@ -74,16 +85,20 @@ return {
         dap.listeners.before.event_terminated['dapui_config'] = dapui.close
         dap.listeners.before.event_exited['dapui_config'] = dapui.close
 
-        -- Install golang specific config
-        require('dap-go').setup {
-            delve = {
-                -- On Windows delve must be run attached or it crashes.
-                -- See https://github.com/leoluz/nvim-dap-go/blob/main/README.md#configuring
-                detached = vim.fn.has 'win32' == 0,
-            },
-        }
+
         -- require('dap-zig').setup()
-        require('dap-python').setup '~/pythonNvim/python.exe'
+        -- require('dap-python').setup '~/pythonNvim/python.exe'
+        for keyTable, langTable in pairs(OptLang) do
+            for keyLang, lang in pairs(langTable) do
+                -- print("setting up ".. keyLang)
+                -- vim.print(lang)
+                if lang.dapServer  then
+                    lang.dapServer()
+                -- else
+                --     print("Skipping dap server " .. keyLang)
+                end
+            end
+        end
 
         dap.adapters.lldb = {
             type = 'executable',
