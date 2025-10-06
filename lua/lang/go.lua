@@ -10,6 +10,7 @@ return {
 			},
 		})
 	end,
+	dapEnsureInstalled = "delve",
 	lspServer = {
 		gopls = {}, -- TODO: Need to verify this
 	},

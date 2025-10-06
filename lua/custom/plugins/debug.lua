@@ -5,6 +5,8 @@ local depend = {
     'jay-babu/mason-nvim-dap.nvim',
 }
 
+dapEnsureInstalled = {}
+
 for keyTable, langTable in pairs(OptLang) do
     for keyLang, lang in pairs(langTable) do
         -- print("setting up ".. keyLang)
@@ -16,8 +18,14 @@ for keyTable, langTable in pairs(OptLang) do
         -- else
         --     print("Skipping dap dependency " .. keyLang)
         end
+        if lang.dapEnsureInstalled then
+            table.insert(dapEnsureInstalled, lang.dapEnsureInstalled)
+        -- else
+        --     print("Skipping dap dependency " .. keyLang)
+        end
     end
 end
+-- vim.print(dapEnsureInstalled)
 
 return {
     -- NOTE: Yes, you can install new plugins here!
@@ -39,15 +47,11 @@ return {
 
             -- You'll need to check that you have the required things installed
             -- online, please don't ask me how to install them :)
-            ensure_installed = {
-                -- Update this to ensure that you have the debuggers for the langs you want
-                'delve',
-                'debuggy',
-            },
+            ensure_installed = dapEnsureInstalled;
         }
 
         -- Basic debugging keymaps, feel free to change to your liking!
-        vim.keymap.set("n", "<F4>", dap.restart)
+        vim.keymap.set("n", "<F4>", dap.restart, { desc = 'Debug: Restart' })
         vim.keymap.set('n', '<F5>', dap.continue, { desc = 'Debug: Start/Continue' })
         vim.keymap.set('n', '<F6>', dap.terminate, { desc = 'Stop: Stop' })
         vim.keymap.set('n', '<F7>', dapui.toggle, { desc = 'Debug: See last session result.' })
