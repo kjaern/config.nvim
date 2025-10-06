@@ -33,15 +33,8 @@ else
 	table.insert(optPlugin, { import = "custom/plugins" })
 end
 
-local f = vim.api.nvim_get_runtime_file("lua/languages.lua", false)
-if f[1] == nil then
-	print("Missing optional languages file.")
-	OptLang = {}
-else
-	OptLang = require("languages")
-end
-
 LanguageSettings = require("collectLanguages")
+
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({

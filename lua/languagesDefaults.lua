@@ -1,6 +1,7 @@
 return {
 	-- { go = require("lang/go") },
 	-- { python = require("lang/python") },
-	-- { zig = require("lang/zig") },
+	-- { rust = require("lang/rust") },
 	-- { yaml = require("lang/yaml") },
+	-- { zig = require("lang/zig") },
 }

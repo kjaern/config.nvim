@@ -140,7 +140,7 @@ return {
 		--  - settings (table): Override the default settings passed when initializing the server.
 		--        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
 
-		local servers = LanguageSettings.lspSettings
+		local servers = LanguageSettings.lspServers
 
 		-- Ensure the servers and tools above are installed
 		--  To check the current status of installed tools and/or manually install

@@ -1,16 +1,18 @@
-local f = vim.api.nvim_get_runtime_file("lua/languages.lua", false)
 local langSetting = {
 	dapDependency = {},
 	dapEnsureInstalled = {},
 	dapServerSetups = {},
 	lspServers = {},
 }
+
+local f = vim.api.nvim_get_runtime_file("lua/languages.lua", false)
+
 if f[1] == nil then
 	print("Missing optional languages file.")
 else
-	OptLang = require("languages")
+	local optLang = require("languages")
 
-	for keyTable, langTable in pairs(OptLang) do
+	for keyTable, langTable in pairs(optLang) do
 		for keyLang, lang in pairs(langTable) do
 			-- print(keyLang)
 			if lang.dapDependency then
