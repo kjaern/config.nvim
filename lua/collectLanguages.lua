@@ -24,9 +24,7 @@ else
 			end
 
 			if lang.lspServer then
-				-- print("dddd")
 				for keyLsp, lsp in pairs(lang.lspServer) do
-					-- vim.print(lsp)
 					langSetting.lspServers[keyLsp] = lsp
 					break
 				end
