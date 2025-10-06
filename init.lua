@@ -41,6 +41,7 @@ else
 	OptLang = require("languages")
 end
 
+LanguageSettings = require("collectLanguages")
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({

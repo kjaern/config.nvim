@@ -4,28 +4,9 @@ local depend = {
     "williamboman/mason.nvim",
     'jay-babu/mason-nvim-dap.nvim',
 }
-
-dapEnsureInstalled = {}
-
-for keyTable, langTable in pairs(OptLang) do
-    for keyLang, lang in pairs(langTable) do
-        -- print("setting up ".. keyLang)
-        -- vim.print(lang)
-        if not lang == nil then
-        end
-        if lang.dapDependency  then
-            table.insert(depend, lang.dapDependency)
-        -- else
-        --     print("Skipping dap dependency " .. keyLang)
-        end
-        if lang.dapEnsureInstalled then
-            table.insert(dapEnsureInstalled, lang.dapEnsureInstalled)
-        -- else
-        --     print("Skipping dap dependency " .. keyLang)
-        end
-    end
+for key, value in pairs(LanguageSettings.dapDependency) do 
+    table.insert(depend, value)
 end
--- vim.print(dapEnsureInstalled)
 
 return {
     -- NOTE: Yes, you can install new plugins here!
@@ -47,7 +28,7 @@ return {
 
             -- You'll need to check that you have the required things installed
             -- online, please don't ask me how to install them :)
-            ensure_installed = dapEnsureInstalled;
+            ensure_installed = LanguageSettings.dapEnsureInstalled;
         }
 
         -- Basic debugging keymaps, feel free to change to your liking!
@@ -89,19 +70,8 @@ return {
         dap.listeners.before.event_terminated['dapui_config'] = dapui.close
         dap.listeners.before.event_exited['dapui_config'] = dapui.close
 
-
-        -- require('dap-zig').setup()
-        -- require('dap-python').setup '~/pythonNvim/python.exe'
-        for keyTable, langTable in pairs(OptLang) do
-            for keyLang, lang in pairs(langTable) do
-                -- print("setting up ".. keyLang)
-                -- vim.print(lang)
-                if lang.dapServer  then
-                    lang.dapServer()
-                -- else
-                --     print("Skipping dap server " .. keyLang)
-                end
-            end
+        for keyLang, lang in pairs(LanguageSettings.dapServerSetups) do
+            lang()
         end
 
         dap.adapters.lldb = {

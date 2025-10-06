@@ -140,20 +140,7 @@ return {
 		--  - settings (table): Override the default settings passed when initializing the server.
 		--        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
 
-		-- local servers = kknServers
-		local servers = {}
-
-		for keyTable, langTable in pairs(OptLang) do
-			for keyLang, lang in pairs(langTable) do
-				if not lang.lspServer == nil then
-					for keyLsp, lsp in pairs(lang.lspServer) do
-						-- vim.print(lsp)
-						servers[keyLsp] = lsp
-						break
-					end
-				end
-			end
-		end
+		local servers = LanguageSettings.lspSettings
 
 		-- Ensure the servers and tools above are installed
 		--  To check the current status of installed tools and/or manually install
