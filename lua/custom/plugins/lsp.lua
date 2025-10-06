@@ -145,10 +145,12 @@ return {
 
 		for keyTable, langTable in pairs(OptLang) do
 			for keyLang, lang in pairs(langTable) do
-				for keyLsp, lsp in pairs(lang.lspServer) do -- TODO: nil check things
-					-- vim.print(lsp)
-					servers[keyLsp] = lsp
-					break
+				if not lang.lspServer == nil then
+					for keyLsp, lsp in pairs(lang.lspServer) do
+						-- vim.print(lsp)
+						servers[keyLsp] = lsp
+						break
+					end
 				end
 			end
 		end
