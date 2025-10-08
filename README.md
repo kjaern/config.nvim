@@ -1,31 +1,45 @@
 # config.nvim
 ## Windows
+To install 
+
+c and cpp compiler - (just install zig...)
+
+* winget install --id=Neovim.Neovim  -e
+* winget install --id=zig.zig  -e
+* winget install -e --id Anaconda.Miniconda3
+* winget install --id Git.Git -e --source winget
+* winget install --id=sharkdp.fd  -e
+* winget install --id=BurntSushi.ripgrep.MSVC  -e
+* winget install -e --id GnuWin32.Make
+
 My neovim config, for now there are a few things specific to windows. Specifically python paths... Would like to get rid of these!
+
 
 It assumes there is a conda env on this location:
 %userprofile%\pythonNvim
 
 In a miniconda terminal run:
-conda create --prefix %userprofile%\pythonNvim -y python==3.12 pynvim 
-pip install pynvim debugpy
-or better yet, for blender support
-conda create --prefix %userprofile%\pythonNvim -y python==3.12 pynvim debugpy
+conda create --prefix $HOME\pythonNvim -y python==3.12
 conda activate .\pythonNvim
+pip install pynvim debugpy pyright
+
+git clone https://github.com/kjaern/config.nvim.git $HOME\AppData\Local\nvim
+
+for blender support
 pip intall bpy
 
 pyreadline3
 
-For all packages to work, please ensure that the following is installed:
-* c and cpp compiler - (just install zig...)
-    * on windows choco install zig 
-* node -
-    * on windows choco install nodejs-lts --version="20.14.0"
+<!-- For all packages to work, please ensure that the following is installed: -->
+<!--     * on windows choco install zig  -->
+<!-- * node - -->
+    <!-- * on windows choco install nodejs-lts --version="20.14.0" -->
 
-* choco install -y neovim git ripgrep wget fd unzip gzip mingw make 
-        (instruction from kickstart, might be some redundancies)
+<!-- * choco install -y neovim git ripgrep wget fd unzip gzip mingw make  -->
+<!--         (instruction from kickstart, might be some redundancies) -->
 
-* choco install stylua
-* choco install luarocks
+<!-- * choco install stylua -->
+<!-- * choco install luarocks -->
 
 ## Linux
 * sudo snap install neovim --classic
