@@ -42,15 +42,29 @@ pyreadline3
 <!-- * choco install luarocks -->
 
 ## Linux
-* sudo snap install neovim --classic
+* sudo snap install nvim --classic
 
-* sudo apt install nodejs
 
 * sudo apt-install fd-find
 snap install zig --classic --beta
-sudo apt install ripgrep
-sudo apt install clang
-sudo apt install unzip
+sudo snap install ripgrep --classic
+sudo snap install node --classic
+<!-- sudo apt install clang -->
+<!-- sudo apt install unzip -->
+
+sudo apt install fd-find
+
+source /etc/environment
+
+### If python is needed:
+mkdir -p ~/miniconda3
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh
+bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
+rm ~/miniconda3/miniconda.sh
+
+cd ~/miniconda3/bin
+./conda init bash
+source ~/.bashrc
 
 conda create -p ./.config/pythonNvim -y python=3.12
 conda activate ~/.config/pythonNvim
