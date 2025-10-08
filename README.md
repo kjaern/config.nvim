@@ -52,6 +52,10 @@ sudo apt install ripgrep
 sudo apt install clang
 sudo apt install unzip
 
+conda create -p ./.config/pythonNvim -y python=3.12
+conda activate ~/.config/pythonNvim
+pip install debugpy pynvim pyright
+
 * git clone https://github.com/kjaern/config.nvim.git ~/.config/nvim
 
 
