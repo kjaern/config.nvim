@@ -63,6 +63,7 @@ sudo apt-get update
 sudo apt-get upgrade
 sudo snap install nvim --classic
 sudo apt-get install build-essential
+sudo snap install node --classic 
 source /etc/environment
 
 git clone https://github.com/kjaern/config.nvim.git ~/.config/nvim
@@ -70,7 +71,6 @@ git clone https://github.com/kjaern/config.nvim.git ~/.config/nvim
 
 Optional:
 ```
-sudo snap install node --classic 
 sudo apt-get install fd-find
 sudo snap install ripgrep --classic
 ```
