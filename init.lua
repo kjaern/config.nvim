@@ -1,3 +1,4 @@
+-- https://github.com/kjaern/config.nvim
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 

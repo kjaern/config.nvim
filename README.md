@@ -6,11 +6,14 @@ c and cpp compiler - (just install zig...)
 
 * winget install --id=Neovim.Neovim  -e
 * winget install --id=zig.zig  -e
-* winget install -e --id Anaconda.Miniconda3
 * winget install --id Git.Git -e --source winget
-* winget install --id=sharkdp.fd  -e
-* winget install --id=BurntSushi.ripgrep.MSVC  -e
 * winget install -e --id GnuWin32.Make
+
+Optional but recomended
+* winget install --id=BurntSushi.ripgrep.MSVC  -e
+* winget install --id=sharkdp.fd  -e
+* winget install --id=jqlang.jq  -e
+* winget install -e --id Anaconda.Miniconda3
 
 My neovim config, for now there are a few things specific to windows. Specifically python paths... Would like to get rid of these!
 
@@ -42,21 +45,23 @@ pyreadline3
 <!-- * choco install luarocks -->
 
 ## Linux
+* sudo apt-get update
+* sudo apt-get upgrade
 * sudo snap install nvim --classic
-
-
 * sudo apt-install fd-find
-snap install zig --classic --beta
-sudo snap install ripgrep --classic
-sudo snap install node --classic
+* snap install zig --classic --beta
+* sudo snap install ripgrep --classic
+* sudo snap install node --classic 
+    - :TODO the markdown plugin needs node js, figure out if there is other dependencies on it
+* sudo apt install fd-find
+* source /etc/environment
 <!-- sudo apt install clang -->
 <!-- sudo apt install unzip -->
+* sudo apt-get install build-essential
+    - :TODO I think this is correct, check it.
+* git clone https://github.com/kjaern/config.nvim.git ~/.config/nvim
 
-sudo apt install fd-find
-
-source /etc/environment
-
-### If python is needed:
+#### If python is needed:
 mkdir -p ~/miniconda3
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh
 bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
@@ -70,7 +75,6 @@ conda create -p ./.config/pythonNvim -y python=3.12
 conda activate ~/.config/pythonNvim
 pip install debugpy pynvim pyright
 
-* git clone https://github.com/kjaern/config.nvim.git ~/.config/nvim
 
 
 ## Raspberry pi
