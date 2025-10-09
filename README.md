@@ -1,4 +1,15 @@
 # config.nvim
+This config consists of a set of preset plugins, and a set of optional ones, that needs to be enabled.
+To do so, copy 
+
+`nvim/lua/optionalPluginsDefaults.lua` to `nvim/lua/optionalPlugins.lua`
+
+and 
+
+`nvim/lua/languagesDefaults.lua` to `nvim/lua/languages.lua`
+
+and outcomment the languages plugins needed.
+
 ## Windows
 We need a few dependencies, like a c and cpp compiler - (just install zig...)
 
@@ -12,35 +23,30 @@ Optional but recomended
 * winget install --id=sharkdp.fd  -e
 * winget install --id=jqlang.jq  -e
 * winget install -e --id Anaconda.Miniconda3
+* winget install -e --id OpenJS.NodeJS
 
-My neovim config, for now there are a few things specific to windows. Specifically python paths... Would like to get rid of these!
+git clone https://github.com/kjaern/config.nvim.git $HOME\AppData\Local\nvim
 
+Populate the optional files:
+cp $HOME\AppData\Local\nvim\lua\languagesDefaults.lua $HOME\AppData\Local\nvim\lua\languages.lua
+cp $HOME\AppData\Local\nvim\lua\optionalPluginsDefaults.lua $HOME\AppData\Local\nvim\lua\optionalPlugins.lua
+
+#### If python support is needed:
 
 It assumes there is a conda env on this location:
-%userprofile%\pythonNvim
+$HOME\pythonNvim
 
 In a miniconda terminal run:
 conda create --prefix $HOME\pythonNvim -y python==3.12
-conda activate .\pythonNvim
+conda activate $HOME\pythonNvim
 pip install pynvim debugpy pyright
-
-git clone https://github.com/kjaern/config.nvim.git $HOME\AppData\Local\nvim
 
 for blender support
 pip intall bpy
 
-pyreadline3
+In the working env for any project, this is also nice to have
+pip install pyreadline3
 
-<!-- For all packages to work, please ensure that the following is installed: -->
-<!--     * on windows choco install zig  -->
-<!-- * node - -->
-    <!-- * on windows choco install nodejs-lts --version="20.14.0" -->
-
-<!-- * choco install -y neovim git ripgrep wget fd unzip gzip mingw make  -->
-<!--         (instruction from kickstart, might be some redundancies) -->
-
-<!-- * choco install stylua -->
-<!-- * choco install luarocks -->
 
 ## Linux
 * sudo apt-get update
