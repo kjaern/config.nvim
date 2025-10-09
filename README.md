@@ -28,7 +28,9 @@ Optional but recomended
 git clone https://github.com/kjaern/config.nvim.git $HOME\AppData\Local\nvim
 
 Populate the optional files:
+
 cp $HOME\AppData\Local\nvim\lua\languagesDefaults.lua $HOME\AppData\Local\nvim\lua\languages.lua
+
 cp $HOME\AppData\Local\nvim\lua\optionalPluginsDefaults.lua $HOME\AppData\Local\nvim\lua\optionalPlugins.lua
 
 #### If python support is needed:
