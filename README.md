@@ -27,7 +27,6 @@ winget install --id=BurntSushi.ripgrep.MSVC  -e
 winget install --id=sharkdp.fd  -e
 winget install --id=jqlang.jq  -e
 winget install -e --id Anaconda.Miniconda3
-
 ```
 
 Populate the optional files:
