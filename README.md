@@ -75,7 +75,6 @@ sudo apt-get install fd-find
 sudo snap install ripgrep --classic
 ```
 
-
 Populate the optional files:
 ```
 cp ~/.config/nvim/lualanguagesDefaults.lua ~/.config/nvim/lualanguages.lua
