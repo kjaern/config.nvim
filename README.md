@@ -1,8 +1,6 @@
 # config.nvim
 ## Windows
-To install 
-
-c and cpp compiler - (just install zig...)
+We need a few dependencies, like a c and cpp compiler - (just install zig...)
 
 * winget install --id=Neovim.Neovim  -e
 * winget install --id=zig.zig  -e
