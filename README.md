@@ -65,6 +65,10 @@ sudo apt-get install build-essential
 sudo snap install node --classic 
 source /etc/environment
 
+conda create -p ~/.config/pythonNvim -y python=3.12
+conda activate ~/.config/pythonNvim
+pip install debugpy pynvim pyright
+
 git clone https://github.com/kjaern/config.nvim.git ~/.config/nvim
 ```
 
