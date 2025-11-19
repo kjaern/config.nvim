@@ -3,8 +3,8 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 if vim.fn.exists("g:os") == 0 then
-	local is_windows = vim.fn.has("win64") == 1 or vim.fn.has("win32") == 1 or vim.fn.has("win16") == 1
-	if is_windows then
+	Iswindows = vim.fn.has("win64") == 1 or vim.fn.has("win32") == 1 or vim.fn.has("win16") == 1
+	if Iswindows then
 		vim.cmd("language en_US")
 	end
 end

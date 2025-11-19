@@ -10,6 +10,6 @@ return {
 	end,
 	dapEnsureInstalled = "debuggy",
 	lspServer = {
-		pyright = {},
+		pyright = { CustomLoadAction = "foo" },
 	},
 }
