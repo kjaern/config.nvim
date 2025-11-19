@@ -36,7 +36,10 @@ end, { desc = "Open terminal, in project folder, in new tap" })
 --     -- vim.fn.system("wt", "-w 0 -sp -d " .. vim.loop.cwd())
 -- end, { desc = 'Open terminal, in project folder, in new horizontal split' })
 
--- vim.opt.shell = 'powershell.exe'
+-- vim.opt.shell = "powershell.exe"
+if Iswindows then
+	vim.opt.shell = "pwsh.exe"
+end
 vim.keymap.set("n", "<leader>wt", function()
 	vim.cmd.vnew()
 	vim.cmd.term()
