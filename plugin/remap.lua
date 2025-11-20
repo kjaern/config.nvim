@@ -21,13 +21,6 @@ vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 -- This is going to get me cancelled
 --vim.keymap.set({ 'i', 'v' }, 'jj', '<Esc>'),
 
-vim.keymap.set("n", "<leader>tt", function()
-	print(vim.loop.cwd())
-	print("wt -w 0 -d " .. vim.loop.cwd())
-	vim.api.nvim_command(":!wt -w 0 nt -d " .. '"' .. vim.loop.cwd() .. '"')
-	-- vim.api.nvim_command("\<CR>")
-	-- vim.fn.system("wt", "-w 0 -sp -d " .. vim.loop.cwd())
-end, { desc = "Open terminal, in project folder, in new tap" })
 -- vim.keymap.set('n', '<leader>tr', function()
 --     print(vim.loop.cwd())
 --     print("wt -w 0 -sp -d " .. vim.loop.cwd())
@@ -36,16 +29,34 @@ end, { desc = "Open terminal, in project folder, in new tap" })
 --     -- vim.fn.system("wt", "-w 0 -sp -d " .. vim.loop.cwd())
 -- end, { desc = 'Open terminal, in project folder, in new horizontal split' })
 
--- vim.opt.shell = "powershell.exe"
 if Iswindows then
+	vim.keymap.set("n", "<leader>tt", function()
+		print(vim.loop.cwd())
+		print("wt -w 0 -d " .. vim.loop.cwd())
+		vim.api.nvim_command(":!wt -w 0 nt -d " .. '"' .. vim.loop.cwd() .. '"' .. " pwsh")
+		-- vim.api.nvim_command("pwsh -WorkingDirectory ~ -ExecutionPolicy ByPass -NoExit -Command "& '%userprofile%\\Miniconda3\\shell\\condabin\\conda-hook.ps1'" .. '"' .. vim.loop.cwd() .. '"' .. " pwsh")
+	end, { desc = "Open terminal, in project folder, in new tap" })
+
+	vim.keymap.set("n", "<leader>wt", function()
+		vim.cmd.vnew()
+		vim.cmd.term()
+		vim.cmd.wincmd("J")
+		vim.api.nvim_win_set_height(0, 15)
+	end, { desc = "Open vim emulated terminal, in project folder, in new vertical split" })
+
+	-- 	vim.opt.shell = "powershell.exe"
 	vim.opt.shell = "pwsh.exe"
+	-- :h shell-powershel& '%userprofile%\Miniconda3\shell\condabin\conda-hook.ps1l
+
+	-- vim.opt.shellcmdflag = '-NoLogo -NonInteractive -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.UTF8Encoding]::new();$PSDefaultParameterValues[''Out-File:Encoding'']=''utf8'';$PSStyle.OutputRendering=''plaintext'';Remove-Alias -Force -ErrorAction SilentlyContinue tee;'
+	vim.opt.shellcmdflag =
+		"-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::Outputncoding=[System.Text.Encoding]::UTF8;"
+	-- "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8; -NoExit -Command & $env:USERPROFILE\\Miniconda3\\shell\\condabin\\conda-hook.ps1 "
+	vim.opt.shellredir = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode"
+	vim.opt.shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode"
+	vim.opt.shellquote = ""
+	vim.opt.shellxquote = ""
 end
-vim.keymap.set("n", "<leader>wt", function()
-	vim.cmd.vnew()
-	vim.cmd.term()
-	vim.cmd.wincmd("J")
-	vim.api.nvim_win_set_height(0, 15)
-end, { desc = "Open vim emulated terminal, in project folder, in new vertical split" })
 
 vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
