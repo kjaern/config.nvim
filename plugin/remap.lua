@@ -33,7 +33,14 @@ if Iswindows then
 	vim.keymap.set("n", "<leader>tt", function()
 		print(vim.loop.cwd())
 		print("wt -w 0 -d " .. vim.loop.cwd())
-		vim.api.nvim_command(":!wt -w 0 nt -d " .. '"' .. vim.loop.cwd() .. '"' .. " pwsh")
+		vim.api.nvim_command(
+			":!wt -w 0 nt pwsh -WorkingDirectory "
+				.. '"'
+				.. vim.loop.cwd()
+				.. '"'
+				-- .. " -ExecutionPolicy ByPass -NoExit  -Command $env:USERPROFILE\\Miniconda3\\shell\\condabin\\conda-hook.ps1"
+				.. " -ExecutionPolicy ByPass -NoExit  -Command ~\\Miniconda3\\shell\\condabin\\conda-hook.ps1"
+		)
 		-- vim.api.nvim_command("pwsh -WorkingDirectory ~ -ExecutionPolicy ByPass -NoExit -Command "& '%userprofile%\\Miniconda3\\shell\\condabin\\conda-hook.ps1'" .. '"' .. vim.loop.cwd() .. '"' .. " pwsh")
 	end, { desc = "Open terminal, in project folder, in new tap" })
 
@@ -46,14 +53,16 @@ if Iswindows then
 
 	-- 	vim.opt.shell = "powershell.exe"
 	vim.opt.shell = "pwsh.exe"
-	-- :h shell-powershel& '%userprofile%\Miniconda3\shell\condabin\conda-hook.ps1l
+	-- :h shell-powershel
 
 	-- vim.opt.shellcmdflag = '-NoLogo -NonInteractive -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.UTF8Encoding]::new();$PSDefaultParameterValues[''Out-File:Encoding'']=''utf8'';$PSStyle.OutputRendering=''plaintext'';Remove-Alias -Force -ErrorAction SilentlyContinue tee;'
 	vim.opt.shellcmdflag =
-		"-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::Outputncoding=[System.Text.Encoding]::UTF8;"
+		"-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;$PSStyle.OutputRendering='plaintext';Remove-Alias -Force -ErrorAction SilentlyContinue tee;"
+	-- "-NoLogo -NonInteractive -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.UTF8Encoding]::new();$PSDefaultParameterValues[''Out-File:Encoding'']=''utf8'';$PSStyle.OutputRendering=''plaintext'';Remove-Alias -Force -ErrorAction SilentlyContinue tee;"
+
 	-- "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8; -NoExit -Command & $env:USERPROFILE\\Miniconda3\\shell\\condabin\\conda-hook.ps1 "
 	vim.opt.shellredir = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode"
-	vim.opt.shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode"
+	vim.opt.shellpipe = "2>&1  | Out-File -Encoding UTF8 %s; exit $LastExitCode"
 	vim.opt.shellquote = ""
 	vim.opt.shellxquote = ""
 end
