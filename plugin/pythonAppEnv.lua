@@ -11,7 +11,7 @@ local function createEnv(envName, env)
 	vim.fn.feedkeys("a")
 	local enter = vim.api.nvim_replace_termcodes("<CR>", true, true, true)
 	vim.fn.feedkeys("clear" .. enter)
-	vim.fn.feedkeys("$env:USERPROFILE\\miniconda3\\Scripts\\activate.bat" .. enter)
+	vim.fn.feedkeys("$env:USERPROFILE\\Miniconda3\\Scripts\\activate.bat" .. enter)
 	-- vim.fn.feedkeys('~/pythonNvim/Scripts/python.exe' .. enter)
 	vim.fn.feedkeys("createDevEnv " .. env .. " " .. envName .. " " .. enter)
 
